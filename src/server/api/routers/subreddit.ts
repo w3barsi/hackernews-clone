@@ -11,7 +11,7 @@ export const subredditRouter = createTRPCRouter({
         name: input.name,
       });
     }),
-  get: publicProcedure.query(async ({ ctx }) => {
+  getSubreddits: publicProcedure.query(async ({ ctx }) => {
     return await ctx.db.select().from(subreddit)
   })
 });

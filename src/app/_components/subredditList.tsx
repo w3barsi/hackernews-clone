@@ -7,13 +7,13 @@ import { Label } from "~/components/ui/label";
 import Link from "next/link";
 
 export const SubredditList = () => {
-  const [data] = api.subreddit.get.useSuspenseQuery();
+  const { data } = api.subreddit.getSubreddits.useQuery();
   const [name, setName] = useState("");
 
   const utils = api.useUtils();
   const createSubreddit = api.subreddit.create.useMutation({
     onSuccess: async () => {
-      await utils.subreddit.get.invalidate();
+      await utils.subreddit.getSubreddits.invalidate();
     },
   });
 
