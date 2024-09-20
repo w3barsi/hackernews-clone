@@ -8,7 +8,6 @@ import Link from "next/link";
 
 export const SubredditList = () => {
   const [data] = api.subreddit.get.useSuspenseQuery();
-  const isLoading = false;
   const [name, setName] = useState("");
 
   const utils = api.useUtils();
